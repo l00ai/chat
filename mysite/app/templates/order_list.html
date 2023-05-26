@@ -1,0 +1,9 @@
+{% for order in orders %}
+<div>
+    Requester: {{ order.requester.username }}
+    <form method="post" action="{% url 'accept_order' order.id %}">
+        {% csrf_token %}
+        <input type="submit" value="Accept">
+    </form>
+</div>
+{% endfor %}
